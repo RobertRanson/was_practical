@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/style.css' %}">
+{% if latest_article_list %}
+    <h1>Latest News</h1>
+    <br/>
+    {% for article in latest_article_list %}
+
+<div class="w3-card-4" style="width:50%;">
+    <header class="w3-container w3-blue">
+      <h1>{{ article.title }}</h1>
+    </header>
+
+    <div class="w3-container">
+      <p>{{ article.contents }}</p>
+    </div>
+
+    <footer class="w3-container w3-blue">
+      <h5>{{ article.publish_date }}</h5>
+    </footer>
+  </div>
+<br/>
+    {% endfor %}
+{% else %}
+    <p>No article are available.</p>
+{% endif %}
